@@ -1,204 +1,199 @@
-/* ================================================================
-   FREUDCINE LANDING PAGE — SCRIPTS
-   Instituto Freudiano de Salvador
-   ================================================================ */
+/* ==========================================================
+   INSTITUTO FREUDIANO DE SALVADOR | script.js
+   Comportamentos: navbar scroll, máscara de telefone, form submit
+   ========================================================== */
 
-document.addEventListener('DOMContentLoaded', () => {
+/* ---------- NAVBAR SCROLL ---------- */
+const navbar = document.getElementById('navbar');
+window.addEventListener('scroll', () => {
+  if (window.scrollY > 60) {
+    navbar.classList.add('scrolled');
+  } else {
+    navbar.classList.remove('scrolled');
+  }
+}, { passive: true });
 
-    // ===== SCROLL ANIMATIONS (Intersection Observer) =====
-    const animatedElements = document.querySelectorAll('[data-animate]');
-
-    const observerOptions = {
-        root: null,
-        rootMargin: '0px 0px -60px 0px',
-        threshold: 0.15
-    };
-
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach((entry, index) => {
-            if (entry.isIntersecting) {
-                // Stagger animation for multiple elements
-                setTimeout(() => {
-                    entry.target.classList.add('is-visible');
-                }, index * 150);
-                observer.unobserve(entry.target);
-            }
-        });
-    }, observerOptions);
-
-    animatedElements.forEach(el => observer.observe(el));
-
-    // ===== SMOOTH HEADER SCROLL EFFECT =====
-    const header = document.getElementById('header');
-    let lastScroll = 0;
-
-    window.addEventListener('scroll', () => {
-        const currentScroll = window.pageYOffset;
-
-        if (currentScroll > 100) {
-            header.style.background = 'rgba(10, 22, 40, 0.9)';
-            header.style.backdropFilter = 'blur(10px)';
-        } else {
-            header.style.background = 'transparent';
-            header.style.backdropFilter = 'none';
-        }
-
-        lastScroll = currentScroll;
-    }, { passive: true });
-
-    // ===== PARALLAX EFFECT ON HERO IMAGE =====
-    const heroImage = document.querySelector('.hero__image-wrapper');
-    
-    if (heroImage) {
-        window.addEventListener('scroll', () => {
-            const scrolled = window.pageYOffset;
-            const rate = scrolled * 0.15;
-            heroImage.style.transform = `translateY(${rate}px)`;
-        }, { passive: true });
+/* ---------- SMOOTH SCROLL para âncoras ---------- */
+document.querySelectorAll('a[href^="#"]').forEach(link => {
+  link.addEventListener('click', (e) => {
+    const target = document.querySelector(link.getAttribute('href'));
+    if (target) {
+      e.preventDefault();
+      const navH = navbar.offsetHeight + 16;
+      const top = target.getBoundingClientRect().top + window.scrollY - navH;
+      window.scrollTo({ top, behavior: 'smooth' });
     }
-
-    // ===== GOLD PARTICLE EFFECT =====
-    function createParticle() {
-        const particle = document.createElement('div');
-        particle.style.cssText = `
-            position: fixed;
-            width: ${Math.random() * 3 + 1}px;
-            height: ${Math.random() * 3 + 1}px;
-            background: radial-gradient(circle, rgba(200, 164, 90, 0.6), transparent);
-            border-radius: 50%;
-            pointer-events: none;
-            z-index: 0;
-            left: ${Math.random() * 100}vw;
-            top: ${Math.random() * 100}vh;
-            animation: particle-float ${Math.random() * 8 + 6}s ease-in-out infinite;
-            opacity: 0;
-        `;
-        document.body.appendChild(particle);
-
-        // Fade in
-        setTimeout(() => {
-            particle.style.transition = 'opacity 2s ease';
-            particle.style.opacity = Math.random() * 0.4 + 0.1;
-        }, 100);
-
-        // Remove after some time and create new one
-        setTimeout(() => {
-            particle.style.opacity = '0';
-            setTimeout(() => particle.remove(), 2000);
-        }, Math.random() * 10000 + 8000);
-    }
-
-    // Add particle keyframes
-    const particleStyle = document.createElement('style');
-    particleStyle.textContent = `
-        @keyframes particle-float {
-            0%, 100% { transform: translate(0, 0); }
-            25% { transform: translate(${Math.random() * 30 - 15}px, ${Math.random() * -40 - 10}px); }
-            50% { transform: translate(${Math.random() * 20 - 10}px, ${Math.random() * -20 - 5}px); }
-            75% { transform: translate(${Math.random() * 30 - 15}px, ${Math.random() * -30 - 10}px); }
-        }
-    `;
-    document.head.appendChild(particleStyle);
-
-    // Create particles periodically
-    setInterval(createParticle, 2000);
-    // Initial burst
-    for (let i = 0; i < 8; i++) {
-        setTimeout(createParticle, i * 300);
-    }
-
-    // ===== CURSOR GLOW EFFECT =====
-    const cursorGlow = document.createElement('div');
-    cursorGlow.style.cssText = `
-        position: fixed;
-        width: 300px;
-        height: 300px;
-        border-radius: 50%;
-        background: radial-gradient(circle, rgba(200, 164, 90, 0.03) 0%, transparent 70%);
-        pointer-events: none;
-        z-index: 0;
-        transform: translate(-50%, -50%);
-        transition: left 0.3s ease, top 0.3s ease;
-    `;
-    document.body.appendChild(cursorGlow);
-
-    document.addEventListener('mousemove', (e) => {
-        cursorGlow.style.left = e.clientX + 'px';
-        cursorGlow.style.top = e.clientY + 'px';
-    });
-
-    // ===== CTA RIPPLE EFFECT =====
-    const ctaBox = document.querySelector('.cta__box');
-    
-    if (ctaBox) {
-        ctaBox.addEventListener('click', function(e) {
-            const ripple = document.createElement('div');
-            const rect = this.getBoundingClientRect();
-            const x = e.clientX - rect.left;
-            const y = e.clientY - rect.top;
-            
-            ripple.style.cssText = `
-                position: absolute;
-                width: 0;
-                height: 0;
-                border-radius: 50%;
-                background: rgba(200, 164, 90, 0.15);
-                transform: translate(-50%, -50%);
-                left: ${x}px;
-                top: ${y}px;
-                animation: ripple-expand 0.6s ease-out forwards;
-                pointer-events: none;
-            `;
-            
-            this.appendChild(ripple);
-            setTimeout(() => ripple.remove(), 700);
-        });
-
-        // Add ripple keyframes
-        const rippleStyle = document.createElement('style');
-        rippleStyle.textContent = `
-            @keyframes ripple-expand {
-                to {
-                    width: 400px;
-                    height: 400px;
-                    opacity: 0;
-                }
-            }
-        `;
-        document.head.appendChild(rippleStyle);
-    }
-
-    // ===== TYPEWRITER EFFECT FOR HERO TITLE =====
-    const heroLabel = document.querySelector('.hero__label');
-    if (heroLabel) {
-        const text = heroLabel.textContent;
-        heroLabel.textContent = '';
-        heroLabel.style.opacity = '1';
-        
-        let i = 0;
-        const typeInterval = setInterval(() => {
-            if (i < text.length) {
-                heroLabel.textContent += text.charAt(i);
-                i++;
-            } else {
-                clearInterval(typeInterval);
-            }
-        }, 60);
-    }
-
-    // ===== SMOOTH ANCHOR SCROLL =====
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function(e) {
-            e.preventDefault();
-            const target = document.querySelector(this.getAttribute('href'));
-            if (target) {
-                target.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'start'
-                });
-            }
-        });
-    });
-
-    console.log('🎬 FreudCine — Landing page carregada com sucesso.');
+  });
 });
+
+/* ---------- MÁSCARA DE TELEFONE ---------- */
+const wppInput = document.getElementById('whatsapp');
+if (wppInput) {
+  wppInput.addEventListener('input', (e) => {
+    let v = e.target.value.replace(/\D/g, '').slice(0, 11);
+    if (v.length <= 2)       v = v.replace(/^(\d{0,2})/, '($1');
+    else if (v.length <= 7)  v = v.replace(/^(\d{2})(\d{0,5})/, '($1) $2');
+    else                     v = v.replace(/^(\d{2})(\d{5})(\d{0,4})/, '($1) $2-$3');
+    e.target.value = v;
+  });
+}
+
+/* ---------- FORM SUBMIT ---------- */
+function handleFormSubmit(e) {
+  e.preventDefault();
+
+  const form   = document.getElementById('lead-form');
+  const btn    = document.getElementById('form-submit-btn');
+  const nome      = document.getElementById('nome').value.trim();
+  const email     = document.getElementById('email').value.trim();
+  const whatsapp  = document.getElementById('whatsapp').value.trim();
+  const horario   = document.getElementById('horario').value;
+
+  /* Validação simples */
+  if (!nome || !email || !whatsapp || !horario) {
+    shakeForm();
+    return;
+  }
+
+  /* Simula loading */
+  btn.disabled = true;
+  btn.textContent = 'Enviando...';
+
+  /* ============================================================
+     INTEGRAÇÃO COM BACKEND / META PIXEL
+     Aqui você deve chamar sua API, ActiveCampaign, RD Station etc.
+     Exemplo de disparo do evento Lead para o Meta Pixel:
+     fbq('track', 'Lead', { content_name: 'Aulas Gratuitas IFS' });
+     ============================================================ */
+  setTimeout(() => {
+    showFormSuccess(nome);
+
+    /* Disparo do evento Lead no Meta Pixel (descomente quando ativar o Pixel) */
+    // if (typeof fbq !== 'undefined') {
+    //   fbq('track', 'Lead', {
+    //     content_name: 'Formação em Psicanálise - Aulas Gratuitas',
+    //     content_category: 'Educação'
+    //   });
+    // }
+
+    /* Redireciona para WhatsApp com dados pré-preenchidos */
+    const msg = encodeURIComponent(
+      `Olá! Me chamo ${nome} e me inscrevi nas aulas gratuitas do IFS. Meu e-mail é ${email} e escolhi o horário: ${formatHorario(horario)}.`
+    );
+    // Redirecionar para WhatsApp após 2 segundos
+    setTimeout(() => {
+      window.open(`https://api.whatsapp.com/send?phone=557196457086&text=${msg}`, '_blank');
+    }, 2000);
+
+  }, 1200);
+}
+
+function showFormSuccess(nome) {
+  const wrapper = document.querySelector('.lead-form-wrapper');
+  wrapper.innerHTML = `
+    <div class="form-success">
+      <div class="form-success-icon">✓</div>
+      <h3>Inscrição confirmada, ${nome.split(' ')[0]}!</h3>
+      <p>
+        Obrigado! Em breve você receberá as instruções de acesso.<br />
+        Estamos te redirecionando ao WhatsApp para confirmar sua vaga. 💬
+      </p>
+    </div>
+  `;
+}
+
+function formatHorario(val) {
+  const map = {
+    'matutino-09-09': '09/09 Matutino (09:00)',
+    'noturno-09-09':  '09/09 Noturno (19:30)',
+    'matutino-10-09': '10/09 Matutino (09:00)',
+    'noturno-10-09':  '10/09 Noturno (19:30)',
+  };
+  return map[val] || val;
+}
+
+function shakeForm() {
+  const form = document.getElementById('lead-form');
+  form.style.animation = 'none';
+  void form.offsetWidth; /* reflow */
+  form.style.animation = 'shake 0.4s ease';
+}
+
+/* ---------- ANIMAÇÃO SHAKE ---------- */
+const shakeStyle = document.createElement('style');
+shakeStyle.textContent = `
+  @keyframes shake {
+    0%,100% { transform: translateX(0); }
+    20%      { transform: translateX(-8px); }
+    40%      { transform: translateX(8px); }
+    60%      { transform: translateX(-5px); }
+    80%      { transform: translateX(5px); }
+  }
+`;
+document.head.appendChild(shakeStyle);
+
+/* ---------- INTERSECTION OBSERVER — fade-in animações ---------- */
+const fadeEls = document.querySelectorAll(
+  '.diferencial-card, .tripe-card, .estrutura-stat-card, .bonus-card, .modulo-item'
+);
+
+const io = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        entry.target.style.transitionDelay = `${(i % 6) * 0.06}s`;
+        entry.target.classList.add('visible');
+        io.unobserve(entry.target);
+      }
+    });
+  },
+  { threshold: 0.1, rootMargin: '0px 0px -50px 0px' }
+);
+
+/* Adiciona estilo inicial de animação de entrada */
+const fadeStyle = document.createElement('style');
+fadeStyle.textContent = `
+  .diferencial-card,
+  .tripe-card,
+  .estrutura-stat-card,
+  .bonus-card,
+  .modulo-item {
+    opacity: 0;
+    transform: translateY(28px);
+    transition: opacity .55s ease, transform .55s ease, border-color .28s, box-shadow .28s, background .28s;
+  }
+  .diferencial-card.visible,
+  .tripe-card.visible,
+  .estrutura-stat-card.visible,
+  .bonus-card.visible,
+  .modulo-item.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+`;
+document.head.appendChild(fadeStyle);
+fadeEls.forEach(el => io.observe(el));
+
+/* ---------- CONTADOR REGRESSIVO (urgência) ---------- */
+// Data alvo: 09 de Setembro de 2026, 09:00
+const targetDate = new Date('2026-09-09T09:00:00');
+
+function updateCountdown() {
+  const now  = new Date();
+  const diff = targetDate - now;
+
+  if (diff <= 0) return; // Evento passou
+
+  const d  = Math.floor(diff / (1000 * 60 * 60 * 24));
+  const h  = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  const m  = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+  const s  = Math.floor((diff % (1000 * 60)) / 1000);
+
+  const el = document.getElementById('countdown');
+  if (el) {
+    el.textContent = `${String(d).padStart(2,'0')}d  ${String(h).padStart(2,'0')}h  ${String(m).padStart(2,'0')}m  ${String(s).padStart(2,'0')}s`;
+  }
+}
+
+updateCountdown();
+setInterval(updateCountdown, 1000);

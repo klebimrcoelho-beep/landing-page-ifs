@@ -1,167 +1,672 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="FreudCine — Grupo de Estudo de Psicanálise e Cinema do Instituto Freudiano de Salvador. Uma experiência de estudo e troca sobre cinema e psicanálise.">
-    <meta name="keywords" content="psicanálise, cinema, Freud, grupo de estudo, Instituto Freudiano de Salvador, FreudCine, Tempos Modernos, Charles Chaplin">
-    <meta name="author" content="Instituto Freudiano de Salvador">
-    <meta property="og:title" content="FreudCine — Grupo de Estudo | Instituto Freudiano de Salvador">
-    <meta property="og:description" content="Participe do grupo de estudo que une psicanálise e cinema. Próximo encontro: 24/8 às 19h30 via Meet.">
-    <meta property="og:type" content="website">
-    <title>FreudCine — Grupo de Estudo | Instituto Freudiano de Salvador</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Instituto Freudiano de Salvador. Formação em Psicanálise com Pós-Graduação Reconhecida pelo MEC. 100% online, ao vivo. 1600 horas. Matrículas abertas." />
+  <meta name="robots" content="index, follow" />
+  <meta property="og:title" content="Formação em Psicanálise | Instituto Freudiano de Salvador" />
+  <meta property="og:description" content="Torne-se um Psicanalista com Pós-Graduação Reconhecida pelo MEC. 100% online, ao vivo. 1600 horas de formação completa." />
+  <meta property="og:image" content="hero_bg.png" />
+  <meta property="og:type" content="website" />
+  <title>Formação em Psicanálise | Instituto Freudiano de Salvador | IFS</title>
+
+  <!-- ============================================================ -->
+  <!--  META PIXEL CODE — Insira o seu Pixel ID abaixo               -->
+  <!--  Substitua "XXXXXXXXXXXXXXXXX" pelo ID real do seu Pixel      -->
+  <!-- ============================================================ -->
+  <!--
+  <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', 'XXXXXXXXXXXXXXXXX');
+    fbq('track', 'PageView');
+  </script>
+  <noscript>
+    <img height="1" width="1" style="display:none"
+      src="https://www.facebook.com/tr?id=XXXXXXXXXXXXXXXXX&ev=PageView&noscript=1"/>
+  </noscript>
+  -->
+  <!-- FIM DO META PIXEL CODE -->
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
-    <!-- Textura de filme nas bordas -->
-    <div class="film-strip film-strip--top" aria-hidden="true">
-        <div class="film-perforations">
-            <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+  <!-- ============================================================ -->
+  <!--  NAVBAR                                                        -->
+  <!-- ============================================================ -->
+  <nav class="navbar" id="navbar">
+    <div class="container navbar-inner">
+      <div class="navbar-logo">
+        <!-- Logo: exibe imagem se disponível, SVG fallback caso contrário -->
+        <div class="logo-img-wrap">
+          <img src="logos ifd/Instituto Freudiano salvador (200 x 200 px).png" alt="IFS" class="logo-img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" />
+          <div class="logo-svg-fallback" style="display:none;" aria-hidden="true">
+            <svg width="44" height="44" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="22" cy="22" r="22" fill="#1a2744"/>
+              <circle cx="22" cy="22" r="20" fill="none" stroke="#c9a84c" stroke-width="1.5"/>
+              <text x="22" y="28" text-anchor="middle" font-family="Georgia,serif" font-size="14" font-weight="bold" fill="#c9a84c">IFS</text>
+            </svg>
+          </div>
         </div>
+        <div class="logo-text">
+          <span class="logo-name">Instituto Freudiano</span>
+          <span class="logo-sub">de Salvador</span>
+        </div>
+      </div>
+      <a href="#bonus" class="btn btn-gold btn-sm navbar-cta">Aula Gratuita →</a>
     </div>
-    <div class="film-strip film-strip--bottom" aria-hidden="true">
-        <div class="film-perforations">
-            <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+  </nav>
+
+  <!-- ============================================================ -->
+  <!--  HERO SECTION                                                  -->
+  <!-- ============================================================ -->
+  <section class="hero" id="hero">
+    <div class="hero-overlay"></div>
+    <!-- Hero bg: imagem com fallback em gradiente via CSS -->
+    <div class="hero-bg" id="hero-bg"></div>
+
+    <div class="container hero-content">
+      <div class="hero-badge">
+        <span class="badge-dot"></span>
+        Vagas Limitadas · Turma 2026
+      </div>
+
+      <h1 class="hero-headline">
+        Torne-se um Psicanalista com
+        <em>Pós-Graduação Reconhecida pelo MEC</em>
+      </h1>
+
+      <p class="hero-subheadline">
+        Formação 100% online, com aulas ao vivo em tempo real.
+        Nada de aulas gravadas. <strong>Aqui é sério.</strong> A clínica exige isso.
+      </p>
+
+      <div class="hero-stats">
+        <div class="stat-item">
+          <span class="stat-number">1.600h</span>
+          <span class="stat-label">Carga Horária Total</span>
         </div>
+        <div class="stat-divider"></div>
+        <div class="stat-item">
+          <span class="stat-number">35</span>
+          <span class="stat-label">Módulos Estruturados</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat-item">
+          <span class="stat-number">MEC</span>
+          <span class="stat-label">Certificação Reconhecida</span>
+        </div>
+      </div>
+
+      <div class="hero-ctas">
+        <a href="#bonus" class="btn btn-gold btn-lg" id="hero-cta-main">
+          ✦ Garantir Minha Aula Gratuita
+        </a>
+        <a href="#diferenciais" class="btn btn-outline btn-lg">
+          Conhecer a Formação
+        </a>
+      </div>
+
+      <p class="hero-disclaimer">
+        📅 Aulas gratuitas: <strong>09 e 10 de Setembro</strong> · Manhã (09h) e Noite (19h30)
+      </p>
     </div>
 
-    <!-- ===== HEADER ===== -->
-    <header class="header" id="header">
-        <nav class="header__nav">
-            <a href="#" class="header__nav-link">Home</a>
-            <a href="#sobre" class="header__nav-link">Sobre</a>
-            <a href="#contato" class="header__nav-link">Contato</a>
-        </nav>
-        <div class="header__brand">
-            <div class="header__logo-group">
-                <!-- Brasão IFS em SVG -->
-                <div class="header__logo" aria-label="Logo do Instituto Freudiano de Salvador">
-                    <img src="imagens/Design%20sem%20nome%20(32).png" alt="Instituto Freudiano de Salvador" class="header__logo-img">
-                </div>
-            </div>
-            <div class="header__divider"></div>
-            <p class="header__subtitle">FORMAÇÃO EM PSICANÁLISE</p>
-        </div>
-    </header>
+    <div class="hero-scroll-indicator">
+      <div class="scroll-dot"></div>
+    </div>
+  </section>
 
-    <!-- ===== HERO SECTION ===== -->
-    <main>
-        <section class="hero" id="sobre">
-            <div class="hero__content">
-                <div class="hero__text" data-animate="fade-right">
-                    <span class="hero__label">GRUPO DE ESTUDO</span>
-                    <h2 class="hero__title">
-                        <span class="hero__title-freud">Freud</span><span class="hero__title-cine">Cine</span>
-                    </h2>
-                    <div class="hero__dot"></div>
-                </div>
-                <div class="hero__image-wrapper" data-animate="fade-left">
-                    <div class="hero__image-frame">
-                        <img src="imagens/freud.png" 
-                             onerror="this.style.display='none'; this.parentElement.classList.add('hero__image-fallback');"
-                             alt="Retrato dramático em estilo vintage de Sigmund Freud" 
-                             class="hero__image" loading="eager">
-                    </div>
-                    <div class="hero__image-glow"></div>
-                </div>
-            </div>
-        </section>
+  <!-- ============================================================ -->
+  <!--  SEÇÃO DE PROVA SOCIAL / URGÊNCIA                             -->
+  <!-- ============================================================ -->
+  <section class="trust-bar" id="trust">
+    <div class="container trust-bar-inner">
+      <div class="trust-item">
+        <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+        Reconhecido pelo MEC
+      </div>
+      <div class="trust-item">
+        <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        Ao Vivo · Sem Gravações
+      </div>
 
-        <!-- ===== DETALHES DO EVENTO ===== -->
-        <section class="details" id="detalhes">
-            <div class="details__container">
-                <!-- Data e Hora -->
-                <div class="details__item" data-animate="fade-up">
-                    <div class="details__icon">
-                        <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <rect x="4" y="8" width="32" height="28" rx="3" stroke="#c8a45a" stroke-width="2" fill="none"/>
-                            <line x1="4" y1="16" x2="36" y2="16" stroke="#c8a45a" stroke-width="2"/>
-                            <line x1="12" y1="4" x2="12" y2="12" stroke="#c8a45a" stroke-width="2" stroke-linecap="round"/>
-                            <line x1="28" y1="4" x2="28" y2="12" stroke="#c8a45a" stroke-width="2" stroke-linecap="round"/>
-                            <rect x="10" y="21" width="4" height="4" rx="0.5" fill="#c8a45a" opacity="0.6"/>
-                            <rect x="18" y="21" width="4" height="4" rx="0.5" fill="#c8a45a" opacity="0.6"/>
-                            <rect x="26" y="21" width="4" height="4" rx="0.5" fill="#c8a45a" opacity="0.6"/>
-                            <rect x="10" y="28" width="4" height="4" rx="0.5" fill="#c8a45a" opacity="0.4"/>
-                            <rect x="18" y="28" width="4" height="4" rx="0.5" fill="#c8a45a" opacity="0.4"/>
-                        </svg>
-                    </div>
-                    <div class="details__text">
-                        <span class="details__date">24/8</span>
-                        <span class="details__time">às <strong>19h30</strong></span>
-                        <span class="details__via">via Meet</span>
-                    </div>
-                </div>
+      <div class="trust-item">
+        <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+        100% Online
+      </div>
+    </div>
+  </section>
 
-                <div class="details__divider"></div>
+  <!-- ============================================================ -->
+  <!--  SEÇÃO DE BÔNUS — AULAS GRATUITAS                            -->
+  <!-- ============================================================ -->
+  <section class="bonus" id="bonus">
+    <div class="container">
 
-                <!-- Filme -->
-                <div class="details__item" data-animate="fade-up">
-                    <div class="details__icon">
-                        <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <!-- Clapperboard base -->
-                            <rect x="4" y="14" width="32" height="22" rx="2" stroke="#c8a45a" stroke-width="2" fill="none"/>
-                            <!-- Clapperboard top -->
-                            <path d="M4 14 L4 10 L36 10 L36 14" stroke="#c8a45a" stroke-width="2" fill="none"/>
-                            <line x1="4" y1="10" x2="12" y2="14" stroke="#c8a45a" stroke-width="1.5"/>
-                            <line x1="12" y1="10" x2="20" y2="14" stroke="#c8a45a" stroke-width="1.5"/>
-                            <line x1="20" y1="10" x2="28" y2="14" stroke="#c8a45a" stroke-width="1.5"/>
-                            <line x1="28" y1="10" x2="36" y2="14" stroke="#c8a45a" stroke-width="1.5"/>
-                            <!-- Film details -->
-                            <line x1="8" y1="20" x2="32" y2="20" stroke="#c8a45a" stroke-width="1" opacity="0.5"/>
-                            <line x1="8" y1="25" x2="28" y2="25" stroke="#c8a45a" stroke-width="1" opacity="0.5"/>
-                            <line x1="8" y1="30" x2="24" y2="30" stroke="#c8a45a" stroke-width="1" opacity="0.5"/>
-                        </svg>
-                    </div>
-                    <div class="details__text">
-                        <span class="details__label">Filme:</span>
-                        <span class="details__film-title">Tempos Modernos <span class="details__film-year">(1936)</span></span>
-                        <span class="details__director">Charles Chaplin</span>
-                    </div>
-                </div>
-            </div>
-        </section>
+      <div class="bonus-badge-top">
+        <span>🎁 BÔNUS EXCLUSIVO</span>
+      </div>
 
-        <!-- ===== CTA SECTION ===== -->
-        <section class="cta" id="contato">
-            <a href="https://chat.whatsapp.com/IWuXTNZRu3q9zvMk8J2SUF?s=cl&p=a&mlu=4" target="_blank" rel="noopener noreferrer" class="cta__box" data-animate="fade-up" id="cta-whatsapp">
-                <div class="cta__icon">
-                    <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M24 4C12.96 4 4 12.96 4 24C4 28.08 5.2 31.88 7.28 35.04L4 44L13.28 40.8C16.32 42.64 19.96 43.76 24 43.76C35.04 43.76 44 34.8 44 23.76C44 18.48 41.88 13.56 38.16 9.84C34.44 6.12 29.28 4 24 4Z" stroke="#c8a45a" stroke-width="2" fill="none"/>
-                        <path d="M17.6 14.4C17.2 13.6 16.4 13.52 15.6 13.52C14.8 13.52 13.6 14 12.8 14.8C12 15.6 10.4 17.2 10.4 20.4C10.4 23.6 12.8 26.64 13.2 27.2C13.6 27.76 17.6 34 24.4 36.4C30 38.4 31.2 37.84 32.4 37.68C33.6 37.52 36 36.4 36.6 35.2C37.2 34 37.2 33.04 37.04 32.72C36.88 32.4 36.32 32.24 35.44 31.8C34.56 31.36 31.36 29.76 30.56 29.44C29.76 29.12 29.28 29.12 28.64 29.84C28 30.56 26.8 32.08 26.24 32.72C25.68 33.36 25.2 33.44 24.32 33.04C23.44 32.56 21.2 31.84 18.56 29.44C16.48 27.6 15.12 25.28 14.56 24.4C14 23.52 14.56 23.04 14.96 22.6C15.36 22.24 15.84 21.6 16.24 21.04C16.64 20.48 16.72 20.08 17.12 19.44C17.52 18.8 17.28 18.16 17.04 17.76C16.8 17.36 15.6 14.08 17.6 14.4Z" fill="#c8a45a" opacity="0.7"/>
-                    </svg>
-                </div>
-                <div class="cta__text">
-                    <span class="cta__heading">Entre no Grupo de Estudos</span>
-                    <span class="cta__description">Clique aqui e acesse nosso grupo exclusivo no WhatsApp.</span>
-                </div>
-                <div class="cta__arrow">
-                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="#c8a45a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                </div>
-            </a>
-        </section>
-    </main>
+      <h2 class="section-title text-center">
+        Participe das <em>Aulas Abertas Gratuitas</em><br />
+        e Conheça Nossa Metodologia
+      </h2>
+      <p class="section-subtitle text-center">
+        Antes de se matricular, experimente a formação na prática. Escolha a data e o horário que funcionam melhor pra você.
+      </p>
 
-    <!-- ===== FOOTER ===== -->
-    <footer class="footer">
-        <div class="footer__content" data-animate="fade-up">
-            <span class="footer__arrow">
-                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M9 5L16 12L9 19" stroke="#c8a45a" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+      <div class="bonus-cards-grid">
+
+        <!-- Dia 1 -->
+        <div class="bonus-card">
+          <div class="bonus-card-header">
+            <span class="bonus-date-badge">09 de Setembro</span>
+            <h3>Dia 1 <span class="dia-sep">·</span> Quarta-feira</h3>
+          </div>
+          <div class="bonus-horarios">
+            <div class="horario-item">
+              <div class="horario-icon-svg">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="4"/>
+                  <line x1="12" y1="2" x2="12" y2="4"/>
+                  <line x1="12" y1="20" x2="12" y2="22"/>
+                  <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
+                  <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+                  <line x1="2" y1="12" x2="4" y2="12"/>
+                  <line x1="20" y1="12" x2="22" y2="12"/>
+                  <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
+                  <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
                 </svg>
-            </span>
-            <p class="footer__text">Uma experiência de estudo e troca<br>no <strong>Instituto Freudiano de Salvador</strong>.</p>
+              </div>
+              <div class="horario-info">
+                <strong>Turno Matutino</strong>
+                <span>09:00 · Início da manhã</span>
+              </div>
+            </div>
+            <div class="horario-item">
+              <div class="horario-icon-svg">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+                </svg>
+              </div>
+              <div class="horario-info">
+                <strong>Turno Noturno</strong>
+                <span>19:30 · Início da noite</span>
+              </div>
+            </div>
+          </div>
         </div>
-        <div class="footer__copyright">
-            <p>&copy; 2025 Instituto Freudiano de Salvador. Todos os direitos reservados.</p>
-        </div>
-    </footer>
 
-    <script src="script.js"></script>
+        <!-- Dia 2 -->
+        <div class="bonus-card bonus-card-highlight">
+          <div class="bonus-card-header">
+            <span class="bonus-date-badge badge-gold">10 de Setembro</span>
+            <h3>Dia 2 <span class="dia-sep">·</span> Quinta-feira</h3>
+          </div>
+          <div class="bonus-horarios">
+            <div class="horario-item">
+              <div class="horario-icon-svg">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="4"/>
+                  <line x1="12" y1="2" x2="12" y2="4"/>
+                  <line x1="12" y1="20" x2="12" y2="22"/>
+                  <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
+                  <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+                  <line x1="2" y1="12" x2="4" y2="12"/>
+                  <line x1="20" y1="12" x2="22" y2="12"/>
+                  <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
+                  <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+                </svg>
+              </div>
+              <div class="horario-info">
+                <strong>Turno Matutino</strong>
+                <span>09:00 · Início da manhã</span>
+              </div>
+            </div>
+            <div class="horario-item">
+              <div class="horario-icon-svg">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+                </svg>
+              </div>
+              <div class="horario-info">
+                <strong>Turno Noturno</strong>
+                <span>19:30 · Início da noite</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- FORMULÁRIO DE CAPTAÇÃO -->
+      <div class="lead-form-wrapper">
+        <div class="lead-form-header">
+          <h3>Reserve sua vaga <em>agora mesmo</em></h3>
+          <p>As vagas são limitadas. Preencha e garanta seu acesso gratuito.</p>
+        </div>
+
+        <form class="lead-form" id="lead-form" onsubmit="handleFormSubmit(event)">
+          <div class="form-group">
+            <label for="nome">Nome Completo</label>
+            <input
+              type="text"
+              id="nome"
+              name="nome"
+              placeholder="Seu nome completo"
+              required
+              autocomplete="name"
+            />
+          </div>
+          <div class="form-group">
+            <label for="email">E-mail</label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              placeholder="seu@email.com"
+              required
+              autocomplete="email"
+            />
+          </div>
+          <div class="form-group">
+            <label for="whatsapp">WhatsApp</label>
+            <input
+              type="tel"
+              id="whatsapp"
+              name="whatsapp"
+              placeholder="(11) 99999-9999"
+              required
+              autocomplete="tel"
+              maxlength="15"
+            />
+          </div>
+          <div class="form-group">
+            <label for="horario">Horário de Preferência</label>
+            <select id="horario" name="horario" required>
+              <option value="" disabled selected>Selecione o turno</option>
+              <option value="matutino-09-09">09/09 Matutino (09:00)</option>
+              <option value="noturno-09-09">09/09 Noturno (19:30)</option>
+              <option value="matutino-10-09">10/09 Matutino (09:00)</option>
+              <option value="noturno-10-09">10/09 Noturno (19:30)</option>
+            </select>
+          </div>
+
+          <button type="submit" class="btn btn-gold btn-lg btn-block" id="form-submit-btn">
+            ✦ Quero Minha Aula Gratuita
+          </button>
+
+          <p class="form-disclaimer">
+            🔒 Seus dados estão protegidos. Não fazemos spam.
+          </p>
+        </form>
+
+        <!-- Alternativa WhatsApp -->
+        <div class="wpp-alternative">
+          <span>ou prefere falar direto conosco?</span>
+          <a href="https://api.whatsapp.com/send?phone=557196457086" target="_blank" rel="noopener" class="btn btn-wpp" id="wpp-form-btn">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            Falar pelo WhatsApp
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============================================================ -->
+  <!--  SEÇÃO DE DIFERENCIAIS                                        -->
+  <!-- ============================================================ -->
+  <section class="diferenciais" id="diferenciais">
+    <div class="container">
+      <div class="section-label">Por que o IFS?</div>
+      <h2 class="section-title text-center">
+        Uma Formação que <em>Não Aceita</em> Superficialidade
+      </h2>
+      <p class="section-subtitle text-center">
+        Tudo aqui foi pensado para você chegar na clínica preparado de verdade, na técnica e na ética.
+      </p>
+
+      <div class="diferenciais-grid">
+
+        <div class="diferencial-card">
+          <div class="diferencial-icon">
+            <svg width="32" height="32" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+          </div>
+          <h3>100% Online · Ao Vivo</h3>
+          <p>Todas as aulas acontecem em tempo real. Não usamos gravações porque a presença e a escuta clínica só se constroem no encontro ao vivo.</p>
+          <div class="diferencial-tag">Sem Gravações</div>
+        </div>
+
+        <div class="diferencial-card">
+          <div class="diferencial-icon">
+            <svg width="32" height="32" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          </div>
+          <h3>Dois Turnos Disponíveis</h3>
+          <p>Escolha entre o turno <strong>Matutino (09h)</strong> ou <strong>Noturno (19h30)</strong>. Adapte a formação à sua rotina sem abrir mão da qualidade.</p>
+          <div class="diferencial-tag">Flexibilidade Real</div>
+        </div>
+
+        <div class="diferencial-card">
+          <div class="diferencial-icon">
+            <svg width="32" height="32" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+          </div>
+          <h3>Certificação Reconhecida pelo MEC</h3>
+          <p>Sua certificação de Pós-Graduação tem validade em todo o Brasil, reconhecida pelo Ministério da Educação.</p>
+          <div class="diferencial-tag">Pós-Graduação MEC</div>
+        </div>
+
+        <div class="diferencial-card">
+          <div class="diferencial-icon">
+            <svg width="32" height="32" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          </div>
+          <h3>Supervisão Clínica</h3>
+          <p>A prática supervisionada faz parte do currículo. Você atende, apresenta casos e recebe devolutiva de analistas experientes.</p>
+          <div class="diferencial-tag">Prática Orientada</div>
+        </div>
+
+        <div class="diferencial-card">
+          <div class="diferencial-icon">
+            <svg width="32" height="32" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+          </div>
+          <h3>Análise Pessoal</h3>
+          <p>Passar pela própria análise é condição fundamental da formação. O IFS orienta e acompanha o aluno nesse processo, que é ético e insubstituível.</p>
+          <div class="diferencial-tag">Ética Freudiana</div>
+        </div>
+
+        <div class="diferencial-card">
+          <div class="diferencial-icon">
+            <svg width="32" height="32" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+          </div>
+          <h3>1.600 Horas de Formação</h3>
+          <p>Uma das cargas horárias mais completas do mercado. 700 horas de aulas em 35 módulos, mais estágio, supervisão e análise pessoal.</p>
+          <div class="diferencial-tag">Alta Carga Horária</div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================ -->
+  <!--  SEÇÃO DO TRIPÉ ANALÍTICO                                     -->
+  <!-- ============================================================ -->
+  <section class="tripe" id="tripe">
+    <div class="tripe-bg-overlay"></div>
+    <div class="container tripe-content">
+
+      <div class="section-label label-light">Fundamento da Clínica</div>
+      <h2 class="section-title text-center light">
+        O <em>Tripé Analítico:</em> A Ética que<br />Sustenta a Formação
+      </h2>
+      <p class="section-subtitle text-center light">
+        Desde Freud, a transmissão da psicanálise só acontece sobre três pilares que caminham juntos. O IFS leva isso a sério.
+      </p>
+
+      <div class="tripe-grid">
+
+        <div class="tripe-card">
+          <div class="tripe-number">01</div>
+          <div class="tripe-icon">
+            <svg width="36" height="36" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+          </div>
+          <h3>Análise Pessoal</h3>
+          <p>
+            A análise pessoal do candidato é condição
+            ética e clínica insubstituível. Não é uma etapa opcional da formação, é o seu fundamento.
+          </p>
+        </div>
+
+        <div class="tripe-card tripe-card-center">
+          <div class="tripe-number">02</div>
+          <div class="tripe-icon">
+            <svg width="36" height="36" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          </div>
+          <h3>Supervisão Clínica</h3>
+          <p>
+            Os casos clínicos são apresentados e supervisionados por analistas experientes. A supervisão é o espaço
+            onde a teoria encontra a prática de verdade, e onde o analista aprende a escutar o que não é dito.
+          </p>
+        </div>
+
+        <div class="tripe-card">
+          <div class="tripe-number">03</div>
+          <div class="tripe-icon">
+            <svg width="36" height="36" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+          </div>
+          <h3>Estágio Clínico</h3>
+          <p>
+            A experiência de atender, de se colocar como analista em formação, é primordial. O estágio é o
+            momento em que o psicanalista começa a se construir na prática, com supervisão e suporte institucional.
+          </p>
+        </div>
+
+      </div>
+
+      <div class="tripe-cta-wrapper">
+        <a href="#bonus" class="btn btn-gold btn-lg" id="tripe-cta">
+          ✦ Quero Participar das Aulas Gratuitas
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============================================================ -->
+  <!--  SEÇÃO ESTRUTURA DO CURSO                                     -->
+  <!-- ============================================================ -->
+  <section class="estrutura" id="estrutura">
+    <div class="container">
+      <div class="section-label">Grade Curricular</div>
+      <h2 class="section-title text-center">
+        Grade Curricular<br /><em>Completa e Bem Estruturada</em>
+      </h2>
+      <p class="section-subtitle text-center">
+        São 1.600 horas organizadas para levar você da teoria fundamental até a prática clínica com autonomia.
+      </p>
+
+      <div class="estrutura-grid">
+
+        <div class="estrutura-stat-card">
+          <div class="big-number">1.600h</div>
+          <div class="big-number-label">Carga Horária Total</div>
+          <p>Uma das formações mais completas do mercado, cobrindo teoria, prática, supervisão e análise pessoal.</p>
+        </div>
+
+        <div class="estrutura-stat-card">
+          <div class="big-number">700h</div>
+          <div class="big-number-label">Horas de Aula</div>
+          <p>Aulas ao vivo, com professores qualificados, cobrindo desde os fundamentos freudianos até as clínicas contemporâneas.</p>
+        </div>
+
+        <div class="estrutura-stat-card">
+          <div class="big-number">35</div>
+          <div class="big-number-label">Módulos Estruturados</div>
+          <p>Cada módulo foi pensado para construir progressivamente a bagagem teórico-clínica do psicanalista em formação.</p>
+        </div>
+
+      </div>
+
+      <div class="modulos-highlight">
+        <div class="modulos-header">
+          <h3>O que você vai estudar</h3>
+          <p>Temas cobertos ao longo dos 35 módulos da formação</p>
+        </div>
+        <div class="modulos-list">
+          <div class="modulo-item">
+            <strong>Fundamentos da teoria:</strong> Aqui você constrói uma base da teoria Psicanalítica.
+          </div>
+          <div class="modulo-item">
+            <strong>Estruturas e psicopatologias:</strong> Para compreender o sofrimento psíquico em profundidade.
+          </div>
+          <div class="modulo-item">
+            <strong>Técnica, clínica e prática:</strong> Você aprende a escutar e sustentar um processo analítico.
+          </div>
+          <div class="modulo-item">
+            <strong>Psicologia e corpo:</strong> Um olhar interdisciplinar sobre o psiquismo.
+          </div>
+          <div class="modulo-item">
+            <strong>Grandes nomes da Psicanálise:</strong> Estudo dos principais pensadores e seus legados.
+          </div>
+          <div class="modulo-item">
+            <strong>Ética e atuação profissional:</strong> Porque conhecimento também precisa de direção.
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============================================================ -->
+  <!--  CTA FINAL                                                     -->
+  <!-- ============================================================ -->
+  <section class="cta-final" id="inscricao">
+    <div class="cta-final-overlay"></div>
+    <div class="container cta-final-content">
+      <div class="cta-urgency-badge">⏰ Vagas Limitadas · Encerra em Breve</div>
+      <h2 class="section-title light text-center">
+        Sua Jornada como Psicanalista<br /><em>Começa com uma Decisão</em>
+      </h2>
+      <p class="section-subtitle light text-center">
+        Participe das aulas gratuitas e conheça de perto a formação que pode transformar sua carreira.
+      </p>
+
+      <div class="cta-final-box">
+        <div class="cta-final-box-title">Reserve seu lugar · É gratuito</div>
+        <div class="cta-dates">
+          <div class="cta-date-item">
+            <strong>09 de Setembro</strong>
+            <span>Matutino 09:00 · Noturno 19:30</span>
+          </div>
+          <div class="cta-date-divider">|</div>
+          <div class="cta-date-item">
+            <strong>10 de Setembro</strong>
+            <span>Matutino 09:00 · Noturno 19:30</span>
+          </div>
+        </div>
+        <a href="#bonus" class="btn btn-gold btn-xl" id="cta-final-btn">
+          ✦ Garantir Minha Aula Gratuita Agora
+        </a>
+        <a href="https://api.whatsapp.com/send?phone=557196457086" target="_blank" rel="noopener" class="btn btn-wpp btn-lg" id="cta-final-wpp">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Falar com um Consultor
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================ -->
+  <!--  FOOTER                                                        -->
+  <!-- ============================================================ -->
+  <footer class="footer" id="footer">
+    <div class="container footer-inner">
+
+      <div class="footer-brand">
+        <img src="logos ifd/Instituto Freudiano salvador (200 x 200 px).png" alt="Instituto Freudiano de Salvador" class="footer-logo" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" />
+        <div class="logo-svg-fallback footer-logo-fallback" style="display:none;" aria-hidden="true">
+          <svg width="52" height="52" viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="26" cy="26" r="26" fill="#1a2744"/>
+            <circle cx="26" cy="26" r="24" fill="none" stroke="#c9a84c" stroke-width="1.5"/>
+            <text x="26" y="32" text-anchor="middle" font-family="Georgia,serif" font-size="16" font-weight="bold" fill="#c9a84c">IFS</text>
+          </svg>
+        </div>
+        <div class="footer-brand-text">
+          <span class="footer-brand-name">Instituto Freudiano de Salvador</span>
+          <span class="footer-brand-sub">Formação em Psicanálise</span>
+        </div>
+      </div>
+
+      <div class="footer-links-grid">
+
+        <div class="footer-col">
+          <h4>Formação</h4>
+          <ul>
+            <li><a href="#diferenciais">Diferenciais</a></li>
+            <li><a href="#tripe">Tripé Analítico</a></li>
+            <li><a href="#estrutura">Grade Curricular</a></li>
+            <li><a href="#bonus">Aulas Gratuitas</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Contato</h4>
+          <ul>
+            <li>
+              <a href="https://api.whatsapp.com/send?phone=557196457086" target="_blank" rel="noopener">WhatsApp</a>
+            </li>
+            <li>
+              <a href="https://www.instagram.com/ifs.ba/" target="_blank" rel="noopener">Instagram @ifs.ba</a>
+            </li>
+          </ul>
+        </div>
+
+
+      </div>
+
+      <div class="footer-social">
+        <a href="https://www.instagram.com/ifs.ba/" target="_blank" rel="noopener" class="social-link" aria-label="Instagram IFS">
+          <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+        </a>
+        <a href="https://api.whatsapp.com/send?phone=557196457086" target="_blank" rel="noopener" class="social-link" aria-label="WhatsApp IFS">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        </a>
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      <div class="container footer-bottom-inner">
+        <p>© 2026 Instituto Freudiano de Salvador. Todos os direitos reservados.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ============================================================ -->
+  <!--  BOTÃO FLUTUANTE DO WHATSAPP                                  -->
+  <!-- ============================================================ -->
+  <a
+    href="https://api.whatsapp.com/send?phone=557196457086"
+    target="_blank"
+    rel="noopener"
+    class="whatsapp-float"
+    id="whatsapp-float"
+    aria-label="Fale conosco pelo WhatsApp"
+  >
+    <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor">
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+    </svg>
+    <span class="wpp-tooltip">Fale conosco!</span>
+  </a>
+
+  <script>
+    // Hero background: tenta carregar imagem; usa gradiente elegante como fallback
+    (function() {
+      var heroBg = document.getElementById('hero-bg');
+      var img = new Image();
+      img.onload = function() {
+        heroBg.style.backgroundImage = "url('hero_bg.png')";
+        heroBg.style.backgroundSize = 'cover';
+        heroBg.style.backgroundPosition = 'center';
+      };
+      img.onerror = function() {
+        // Fallback: gradient que transmite a mesma atmosfera navy/gold
+        heroBg.style.background = 'linear-gradient(135deg, #0d1526 0%, #1a2744 40%, #243560 70%, #1a2744 100%)';
+      };
+      img.src = 'hero_bg.png';
+    })();
+  </script>
+  <script src="script.js"></script>
 </body>
 </html>
