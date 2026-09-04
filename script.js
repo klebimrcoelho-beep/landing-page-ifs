@@ -42,8 +42,8 @@ if (wppInput) {
 function handleFormSubmit(e) {
   e.preventDefault();
 
-  const form   = document.getElementById('lead-form');
-  const btn    = document.getElementById('form-submit-btn');
+  const form      = document.getElementById('lead-form');
+  const btn       = document.getElementById('form-submit-btn');
   const nome      = document.getElementById('nome').value.trim();
   const email     = document.getElementById('email').value.trim();
   const whatsapp  = document.getElementById('whatsapp').value.trim();
@@ -55,37 +55,38 @@ function handleFormSubmit(e) {
     return;
   }
 
-  /* Simula loading */
+  /* Feedback visual de loading */
   btn.disabled = true;
   btn.textContent = 'Enviando...';
 
-  /* ============================================================
-     INTEGRAÇÃO COM BACKEND / META PIXEL
-     Aqui você deve chamar sua API, ActiveCampaign, RD Station etc.
-     Exemplo de disparo do evento Lead para o Meta Pixel:
-     fbq('track', 'Lead', { content_name: 'Aulas Gratuitas IFS' });
-     ============================================================ */
+  /* Monta a mensagem pré-formatada */
+  const mensagem = `Olá! Quero garantir minha vaga na aula gratuita da Formação em Psicanálise.
+
+Meus dados:
+👤 Nome: ${nome}
+✉️ E-mail: ${email}
+📱 WhatsApp: ${whatsapp}
+🗓️ Horário escolhido: ${formatHorario(horario)}`;
+
+  const mensagemCodificada = encodeURIComponent(mensagem);
+  const urlWhatsApp = `https://wa.me/557196457086?text=${mensagemCodificada}`;
+
+  /* Disparo do evento Lead no Meta Pixel (descomente quando ativar o Pixel) */
+  // if (typeof fbq !== 'undefined') {
+  //   fbq('track', 'Lead', {
+  //     content_name: 'Formação em Psicanálise - Aulas Gratuitas',
+  //     content_category: 'Educação'
+  //   });
+  // }
+
+  /* Abre o WhatsApp em nova aba e exibe a tela de sucesso */
   setTimeout(() => {
+    window.open(urlWhatsApp, '_blank');
     showFormSuccess(nome);
-
-    /* Disparo do evento Lead no Meta Pixel (descomente quando ativar o Pixel) */
-    // if (typeof fbq !== 'undefined') {
-    //   fbq('track', 'Lead', {
-    //     content_name: 'Formação em Psicanálise - Aulas Gratuitas',
-    //     content_category: 'Educação'
-    //   });
-    // }
-
-    /* Redireciona para WhatsApp com dados pré-preenchidos */
-    const msg = encodeURIComponent(
-      `Olá! Me chamo ${nome} e me inscrevi nas aulas gratuitas do IFS. Meu e-mail é ${email} e escolhi o horário: ${formatHorario(horario)}.`
-    );
-    // Redirecionar para WhatsApp após 2 segundos
-    setTimeout(() => {
-      window.open(`https://api.whatsapp.com/send?phone=557196457086&text=${msg}`, '_blank');
-    }, 2000);
-
-  }, 1200);
+    form.reset();
+    btn.disabled = false;
+    btn.textContent = '✦ Quero Minha Aula Gratuita';
+  }, 800);
 }
 
 function showFormSuccess(nome) {
