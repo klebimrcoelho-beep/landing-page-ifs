@@ -135,7 +135,7 @@ document.head.appendChild(shakeStyle);
 
 /* ---------- INTERSECTION OBSERVER — fade-in animações ---------- */
 const fadeEls = document.querySelectorAll(
-  '.diferencial-card, .tripe-card, .estrutura-stat-card, .bonus-card, .modulo-item'
+  '.diferencial-card, .tripe-card, .estrutura-stat-card, .pricing-card, .modulo-item'
 );
 
 const io = new IntersectionObserver(
@@ -157,7 +157,7 @@ fadeStyle.textContent = `
   .diferencial-card,
   .tripe-card,
   .estrutura-stat-card,
-  .bonus-card,
+  .pricing-card,
   .modulo-item {
     opacity: 0;
     transform: translateY(28px);
@@ -166,7 +166,7 @@ fadeStyle.textContent = `
   .diferencial-card.visible,
   .tripe-card.visible,
   .estrutura-stat-card.visible,
-  .bonus-card.visible,
+  .pricing-card.visible,
   .modulo-item.visible {
     opacity: 1;
     transform: translateY(0);
